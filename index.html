@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <script type="text/javascript" src="assets/javascript/game.js"></script> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-0"></div>
+            <div class="col-lg-6">
+                <img id="pblogopic" src="assets/images/PointBreakLogo.png" alt="Point Break Logo">
+            </div>
+            <div class="col-lg-6">
+                    <img id="ubpic" src="assets/images/UtahBodhi.png" alt="Point Break Logo">
+            </div>
+            <div class"col-lg-0"></div>
+        </div>
+        <div class="row">
+            <h1 id="title">Point Break<span> Hangman</span></h1>
+        </div>
+        <div class="row">
+            <div id="wipeoutbox" class="col-lg-3">
+                <img id="wipeoutpic" src="assets/images/wipeout.png">
+                    <div class = "row">
+                        <div id="picsection1" class="col-lg-1"></div>
+                        <div id="picsection2" class="col-lg-1"></div>
+                        <div id="picsection3" class="col-lg-1"></div>
+                        <div id="picsection4" class="col-lg-1"></div>
+                        <div id="picsection5" class="col-lg-1"></div>
+                        <div id="picsection6" class="col-lg-1"></div>
+                        <div id="picsection7" class="col-lg-1"></div>
+                        <div id="picsection8" class="col-lg-1"></div>
+                        <!-- <div id="picsection9" class="col-lg-1"></div>
+                        <div id="picsection10" class="col-lg-1"></div>
+                        <div id="picsection11" class="col-lg-1"></div>
+                        <div id="picsection12" class="col-lg-1"></div> -->
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <!-- <div class="row">
+                    <h2 id="wordtitle">Current Word</h2>
+                </div> -->
+                <div id="wordslocation" class="row">
+                    <p id="winlosemessage">Try to guess the word related to Point Break by picking any letter.  If you get it wrong 8 times then you wipeout.</p>
+                    <span id="letter1"></span>
+                    <span id="letter2"></span>
+                    <span id="letter3"></span>
+                    <span id="letter4"></span>
+                    <span id="letter5"></span>
+                    <span id="letter6"></span>
+                    <span id="letter7"></span>
+                    <span id="letter8"></span>
+                    <span id="letter9"></span>
+                    <span id="letter10"></span>
+                    <span id="letter11"></span>
+                    <span id="letter12"></span>
+                    <span id="letter13"></span>
+                    <span id="letter14"></span>
+                    <span id="letter15"></span>
+                    <span id="letter16"></span>
+                </div>   
+                <div class="row">
+                    <div id="guessedbox"><span id="guessedtitle">Letters Guessed: </span><span id="guessed"></span></div>
+                </div>
+                <div class="row">
+                    <div id="remainingbox"><span id="remainingtitle">Guesses Remaining: </span><span id="remaining"></span></div>
+                    </div> 
+                <div class="row">
+                    <div id="scorebox"><span id="scoretitle">Score: </span><span id="score"></span></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script>
+        var wordsArray = ["Bodhi", "JohnnyUtah", "Surfing", "Skydiving", "FBI", "BankRobbers"]
+        var guess
+        var badguess = 0
+        var goodguess = 0
+        var badguessArray = []
+        var guessesremaining = 8
+        var score = 0
+        var currentword
+        var random = Math.floor(Math.random() * wordsArray.length)
+        var word = wordsArray[random]
+
+        // currentword = random;    
+        // if("<insert if statement here>"){
+        //     currentword = random
+        // }
+        function keepscore(){
+            score = score + 1
+        }    
+        
+        if (word === "Bodhi") {
+            document.querySelector("#letter5").innerHTML = "_";
+            document.querySelector("#letter6").innerHTML = "_";
+            document.querySelector("#letter7").innerHTML = "_";
+            document.querySelector("#letter8").innerHTML = "_";
+            document.querySelector("#letter9").innerHTML = "_";
+        }
+
+        if (word === "JohnnyUtah"){
+            document.querySelector("#letter4").innerHTML = "_";
+            document.querySelector("#letter5").innerHTML = "_";
+            document.querySelector("#letter6").innerHTML = "_";
+            document.querySelector("#letter7").innerHTML = "_";
+            document.querySelector("#letter8").innerHTML = "_";
+            document.querySelector("#letter9").innerHTML = "_  ";
+            document.querySelector("#letter10").innerHTML = "_";
+            document.querySelector("#letter11").innerHTML = "_";
+            document.querySelector("#letter12").innerHTML = "_";
+            document.querySelector("#letter13").innerHTML = "_";
+        }       
+
+        if (word === "Skydiving"){
+            document.querySelector("#letter4").innerHTML = "_";
+            document.querySelector("#letter5").innerHTML = "_";
+            document.querySelector("#letter6").innerHTML = "_";
+            document.querySelector("#letter7").innerHTML = "_";
+            document.querySelector("#letter8").innerHTML = "_";
+            document.querySelector("#letter9").innerHTML = "_";
+            document.querySelector("#letter10").innerHTML = "_";
+            document.querySelector("#letter11").innerHTML = "_";
+            document.querySelector("#letter12").innerHTML = "_";
+        }       
+
+        if (word === "Surfing"){
+            document.querySelector("#letter5").innerHTML = "_";
+            document.querySelector("#letter6").innerHTML = "_";
+            document.querySelector("#letter7").innerHTML = "_";
+            document.querySelector("#letter8").innerHTML = "_";
+            document.querySelector("#letter9").innerHTML = "_";
+            document.querySelector("#letter10").innerHTML = "_";
+            document.querySelector("#letter11").innerHTML = "_";
+        }       
+
+        if (word === "FBI") {
+            document.querySelector("#letter7").innerHTML = "_";
+            document.querySelector("#letter8").innerHTML = "_";
+            document.querySelector("#letter9").innerHTML = "_";
+        }
+
+            if (word === "BankRobbers"){
+            document.querySelector("#letter4").innerHTML = "_";
+            document.querySelector("#letter5").innerHTML = "_";
+            document.querySelector("#letter6").innerHTML = "_";
+            document.querySelector("#letter7").innerHTML = "_ ";
+            document.querySelector("#letter8").innerHTML = " _";
+            document.querySelector("#letter9").innerHTML = "_";
+            document.querySelector("#letter10").innerHTML = "_";
+            document.querySelector("#letter11").innerHTML = "_";
+            document.querySelector("#letter12").innerHTML = "_";
+            document.querySelector("#letter13").innerHTML = "_";
+            document.querySelector("#letter13").innerHTML = "_";
+        }
+
+
+        document.querySelector("#score").innerHTML = score
+        // document.querySelector("#letter1").innerHTML = 
+        document.querySelector("#remaining").innerHTML = guessesremaining
+        document.addEventListener("keyup", function() {    
+            guess = event.key;
+            document.querySelector("#letter1").innerHTML = "";
+            if (word.toLowerCase().includes(guess)){
+                // document.querySelector("#letter1").innerHTML = "Good Guess"
+                goodguess = goodguess + 1;
+                // pass this to good guess span in html
+            }
+            else {
+            // pass this to bad guess span
+                badguess = badguess + 1;
+                guessesremaining = guessesremaining - 1;
+                document.querySelector("#remaining").innerHTML = guessesremaining;
+                badguessArray.push(guess)
+                document.querySelector("#guessed").innerHTML = badguessArray
+            }
+            if (badguess === 8){
+                document.querySelector("#winlosemessage").innerHTML = "You Just Wiped Out, Brah!  Press Any Key To Try Again." 
+                document.onkeyup = function(event){
+                    location.reload()
+                    }    
+                document.querySelector("#score").innerHTML = score
+            }
+            if (word === "Bodhi") {
+                if (guess.toLowerCase().includes("b")) {
+                    document.querySelector("#letter5").innerHTML = "B"
+                }
+
+                if (guess.toLowerCase().includes("o")) {
+                    document.querySelector("#letter6").innerHTML = "o"
+                }
+
+                if (guess.toLowerCase().includes("d")) {
+                    document.querySelector("#letter7").innerHTML = "d"
+                }
+
+                if (guess.toLowerCase().includes("h")) {
+                    document.querySelector("#letter8").innerHTML = "h"
+                }
+
+                if (guess.toLowerCase().includes("i")) {
+                    document.querySelector("#letter9").innerHTML = "i"
+                }
+
+            }    
+
+            if (word === "JohnnyUtah") {
+                if (guess.toLowerCase().includes("j")) {
+                    document.querySelector("#letter4").innerHTML = "J"
+                }
+
+                if (guess.toLowerCase().includes("o")) {
+                    document.querySelector("#letter5").innerHTML = "o"
+                }
+
+                if (guess.toLowerCase().includes("h")) {
+                    document.querySelector("#letter6").innerHTML = "h"
+                }
+
+                if (guess.toLowerCase().includes("n")) {
+                    document.querySelector("#letter7").innerHTML = "n"
+                }
+
+                if (guess.toLowerCase().includes("n")) {
+                    document.querySelector("#letter8").innerHTML = "n"
+                }
+        
+                if (guess.toLowerCase().includes("y")) {
+                    document.querySelector("#letter9").innerHTML = "y "
+                }
+
+                if (guess.toLowerCase().includes("u")) {
+                    document.querySelector("#letter10").innerHTML = "U"
+                }
+
+                if (guess.toLowerCase().includes("t")) {
+                    document.querySelector("#letter11").innerHTML = "t"
+                }
+
+                if (guess.toLowerCase().includes("a")) {
+                    document.querySelector("#letter12").innerHTML = "a"
+                }
+
+                if (guess.toLowerCase().includes("h")) {
+                    document.querySelector("#letter13").innerHTML = "h"
+                }    
+            }
+
+            if (word === "Surfing") {
+                if (guess.toLowerCase().includes("s")) {
+                    document.querySelector("#letter5").innerHTML = "S"
+                }
+
+                if (guess.toLowerCase().includes("u")) {
+                    document.querySelector("#letter6").innerHTML = "u"
+                }
+
+                if (guess.toLowerCase().includes("r")) {
+                    document.querySelector("#letter7").innerHTML = "r"
+                }
+
+                if (guess.toLowerCase().includes("f")) {
+                    document.querySelector("#letter8").innerHTML = "f"
+                }
+
+                if (guess.toLowerCase().includes("i")) {
+                    document.querySelector("#letter9").innerHTML = "i"
+                }
+        
+                if (guess.toLowerCase().includes("n")) {
+                    document.querySelector("#letter10").innerHTML = "n"
+                }
+
+                if (guess.toLowerCase().includes("g")) {
+                    document.querySelector("#letter11").innerHTML = "g"
+                }
+            }
+
+            if (word === "Skydiving") {
+                if (guess.toLowerCase().includes("s")) {
+                    document.querySelector("#letter4").innerHTML = "S"
+                }
+
+                if (guess.toLowerCase().includes("k")) {
+                    document.querySelector("#letter5").innerHTML = "k"
+                }
+
+                if (guess.toLowerCase().includes("y")) {
+                    document.querySelector("#letter6").innerHTML = "y"
+                }
+
+                if (guess.toLowerCase().includes("d")) {
+                    document.querySelector("#letter7").innerHTML = "d"
+                }
+
+                if (guess.toLowerCase().includes("i")) {
+                    document.querySelector("#letter8").innerHTML = "i"
+                }
+        
+                if (guess.toLowerCase().includes("v")) {
+                    document.querySelector("#letter9").innerHTML = "v"
+                }
+
+                if (guess.toLowerCase().includes("i")) {
+                    document.querySelector("#letter10").innerHTML = "i"
+                }
+
+                if (guess.toLowerCase().includes("n")) {
+                    document.querySelector("#letter11").innerHTML = "n"
+                }
+
+                if (guess.toLowerCase().includes("g")) {
+                    document.querySelector("#letter12").innerHTML = "g"
+                }
+            }
+
+            if (word === "FBI") {
+                if (guess.toLowerCase().includes("f")) {
+                    document.querySelector("#letter7").innerHTML = "F"
+                }
+
+                if (guess.toLowerCase().includes("b")) {
+                    document.querySelector("#letter8").innerHTML = "B"
+                }
+
+                if (guess.toLowerCase().includes("i")) {
+                    document.querySelector("#letter9").innerHTML = "I"
+                }
+            }
+
+            if (word === "BankRobbers") {
+                if (guess.toLowerCase().includes("b")) {
+                    document.querySelector("#letter4").innerHTML = "B"
+                }
+
+                if (guess.toLowerCase().includes("a")) {
+                    document.querySelector("#letter5").innerHTML = "a"
+                }
+
+                if (guess.toLowerCase().includes("n")) {
+                    document.querySelector("#letter6").innerHTML = "n"
+                }
+
+                if (guess.toLowerCase().includes("k")) {
+                    document.querySelector("#letter7").innerHTML = "k "
+                }
+
+                if (guess.toLowerCase().includes("r")) {
+                    document.querySelector("#letter8").innerHTML = "R"
+                }
+        
+                if (guess.toLowerCase().includes("o")) {
+                    document.querySelector("#letter9").innerHTML = "o"
+                }
+
+                if (guess.toLowerCase().includes("b")) {
+                    document.querySelector("#letter10").innerHTML = "b"
+                }
+
+                if (guess.toLowerCase().includes("b")) {
+                    document.querySelector("#letter11").innerHTML = "b"
+                }
+
+                if (guess.toLowerCase().includes("e")) {
+                    document.querySelector("#letter12").innerHTML = "e"
+                }
+
+                if (guess.toLowerCase().includes("r")) {
+                    document.querySelector("#letter13").innerHTML = "r"
+                }    
+
+                if (guess.toLowerCase().includes("s")) {
+                    document.querySelector("#letter14").innerHTML = "s"
+                }    
+            }
+                //need to add this to each word's conditional statement with the correct number of letters
+                if (goodguess === word.length - 2) {
+                document.querySelector("#winlosemessage").innerHTML = "Great Job Catching That Tube, Brah!  Press Any Key To Try Again"
+                document.onkeyup = function(event){
+                    location.reload()
+                    }    
+                keepscore();   
+                document.querySelector("#score").innerHTML = score
+                }    
+
+
+            if (goodguess === word.length) {
+                document.querySelector("#winlosemessage").innerHTML = "Great Job Catching That Tube, Brah!  Press Any Key To Try Again"
+                document.onkeyup = function(event){
+                    location.reload()
+                    }    
+                keepscore();   
+                document.querySelector("#score").innerHTML = score    
+            }
+
+            if (goodguess === word.length) {
+                document.querySelector("#winlosemessage").innerHTML = "Great Job Catching That Tube, Brah!  Press Any Key To Try Again."
+                document.onkeyup = function(event){
+                    location.reload()
+                    }    
+                keepscore();   
+                document.querySelector("#score").innerHTML = score
+                }
+        })    
+            // function bodhiguess(){
+
+            //     if (guess.toLowerCase() = "b") {
+
+            //         document.querySelector("#letter5").innerHTML = "B"
+            //     }
+                
+            //     if (guess.toLowerCase() = "o") {
+            //         document.querySelector("letter6").innerHTML = "o"
+            //     }
+
+            //     if (guess.toLowerCase() = "d") {
+            //         document.querySelector("#letter7").innerHTML = "d"
+            //     }
+
+            //     if (guess.toLowerCase() = "h") {
+            //         document.querySelector("#letter8").innerHTML = "h"
+            //     }
+
+            //     if (guess.toLowerCase() = "i") {
+            //         document.querySelector("#letter9").innerHTML = "i"
+            //     }
+            // }
+    </script>
+</body>
+</html>

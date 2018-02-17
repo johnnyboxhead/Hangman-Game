@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <script type="text/javascript" src="assets/javascript/game.js"></script> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-0"></div>
+            <div class="col-lg-6">
+                <img id="pblogopic" src="assets/images/PointBreakLogo.png" alt="Point Break Logo">
+            </div>
+            <div class="col-lg-6">
+                    <img id="ubpic" src="assets/images/UtahBodhi.png" alt="Point Break Logo">
+            </div>
+            <div class"col-lg-0"></div>
+        </div>
+        <div class="row">
+            <h1 id="title">Point Break<span> Hangman</span></h1>
+        </div>
+        <div class="row">
+            <div id="wipeoutbox" class="col-lg-3">
+                <img id="wipeoutpic" src="assets/images/wipeout.png">
+                <div id="picsection1" class="col-lg-1"></div>
+                <div id="picsection2" class="col-lg-1"></div>
+                <div id="picsection3" class="col-lg-1"></div>
+                <div id="picsection4" class="col-lg-1"></div>
+                <div id="picsection5" class="col-lg-1"></div>
+                <div id="picsection6" class="col-lg-1"></div>
+                <div id="picsection7" class="col-lg-1"></div>
+                <div id="picsection8" class="col-lg-1"></div>
+                <div id="picsection9" class="col-lg-1"></div>
+                <div id="picsection10" class="col-lg-1"></div>
+                <div id="picsection11" class="col-lg-1"></div>
+                <div id="picsection12" class="col-lg-1"></div>
+            </div>
+            <div class="col-lg-9">
+                <div class="row">
+                    <h2 id="wordtitle">Current Word</h2>
+                </div>
+                <div id="wordslocation" class="row">
+                    <h3 id="words">This is where the words will go</h2>
+                </div>   
+                <div class="row">
+                    <div id="guessedbox"><span id="guessedtitle">Letters Guessed: </span><span id="guessed"></span></div>
+                </div>
+                <div class="row">
+                    <div id="remainingbox"><span id="remainingtitle">Guesses Remaining: </span><span id="remaining"></span></div>
+                    </div> 
+                <div class="row">
+                    <div id="scorebox"><span id="scoretitle">Score: </span><span id="score"></span></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script>
+    // var wordsArray = ["Bodhi", "JohnnyUtah", "Surfing", "Skydiving", "FBI", "BankRobbers"]
+    var wordArray = [[b,o,d,h,i]]
+    var guess
+    var badguess = 0
+    var guessesremaining = 8
+    var score = 0
+    var currentword
+    // var random = wordsArray[math.floor(math.random() * wordsArray.length)]
+
+    // currentword = random;    
+    // if("<insert if statement here>"){
+    //     currentword = random
+    // }
+
+    document.querySelector("#score").innerHTML = score
+    document.querySelector("#words").innerHTML = wordArray[0];
+    document.onkeyup = function(event){
+    guess = event.key;
+
+        if (word.toLowerCase().includes(guess)){
+            document.querySelector("#words").innerHTML = word;
+            // pass this to good guess span in html
+        }
+        else {
+        // pass this to bad guess span
+            badguess = badguess + 1;
+            
+            guessesremaining = guessesremaining - 1;
+            document.querySelector("#remaining").innerHTML = guessesremaining;
+        }
+        if (badguess === 8){
+            document.querySelector("#words").innerHTML = "You Just Wiped Out, Brah!  Press Any Key To Try Again." 
+            document.onkeyup = function(event){
+                location.reload()
+            }    
+        }
+        document.querySelector("#guessed").innerHTML = guess;
+
+        // if (event.key === "d") {
+        //     car.driveToWork();
+        //     reWriteStats();
+        // }
+    }
+    </script>
+</body>
+</html>
