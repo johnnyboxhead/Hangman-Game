@@ -252,6 +252,15 @@
                 if (guess.toLowerCase().includes("h")) {
                     document.querySelector("#letter13").innerHTML = "h"
                 }    
+
+                if (goodguess === word.length - 2) {
+                    document.querySelector("#winlosemessage").innerHTML = "Great Job Catching That Tube, Brah!  Press Any Key To Try Again"
+                    document.onkeyup = function(event){
+                        location.reload()
+                    }    
+                    keepscore();   
+                    document.querySelector("#score").innerHTML = score
+                }    
             }
 
             if (word === "Surfing") {
@@ -282,6 +291,16 @@
                 if (guess.toLowerCase().includes("g")) {
                     document.querySelector("#letter11").innerHTML = "g"
                 }
+
+                if (goodguess === word.length) {
+                    document.querySelector("#winlosemessage").innerHTML = "Great Job Catching That Tube, Brah!  Press Any Key To Try Again"
+                    document.onkeyup = function(event){
+                        location.reload()
+                    }    
+                    keepscore();   
+                    document.querySelector("#score").innerHTML = score
+                }    
+
             }
 
             if (word === "Skydiving") {
@@ -320,6 +339,15 @@
                 if (guess.toLowerCase().includes("g")) {
                     document.querySelector("#letter12").innerHTML = "g"
                 }
+
+                if (goodguess === word.length-1) {
+                    document.querySelector("#winlosemessage").innerHTML = "Great Job Catching That Tube, Brah!  Press Any Key To Try Again"
+                    document.onkeyup = function(event){
+                        location.reload()
+                    }    
+                    keepscore();   
+                    document.querySelector("#score").innerHTML = score
+                }    
             }
 
             if (word === "FBI") {
@@ -334,6 +362,14 @@
                 if (guess.toLowerCase().includes("i")) {
                     document.querySelector("#letter9").innerHTML = "I"
                 }
+                if (goodguess === word.length) {
+                    document.querySelector("#winlosemessage").innerHTML = "Great Job Catching That Tube, Brah!  Press Any Key To Try Again"
+                    document.onkeyup = function(event){
+                        location.reload()
+                    }    
+                    keepscore();   
+                    document.querySelector("#score").innerHTML = score
+                }    
             }
 
             if (word === "BankRobbers") {
@@ -380,35 +416,38 @@
                 if (guess.toLowerCase().includes("s")) {
                     document.querySelector("#letter14").innerHTML = "s"
                 }    
-            }
-                //need to add this to each word's conditional statement with the correct number of letters
-                if (goodguess === word.length - 2) {
-                document.querySelector("#winlosemessage").innerHTML = "Great Job Catching That Tube, Brah!  Press Any Key To Try Again"
-                document.onkeyup = function(event){
-                    location.reload()
-                    }    
-                keepscore();   
-                document.querySelector("#score").innerHTML = score
-                }    
 
-
-            if (goodguess === word.length) {
-                document.querySelector("#winlosemessage").innerHTML = "Great Job Catching That Tube, Brah!  Press Any Key To Try Again"
-                document.onkeyup = function(event){
-                    location.reload()
+                if (goodguess === word.length - 3) {
+                    document.querySelector("#winlosemessage").innerHTML = "Great Job Catching That Tube, Brah!  Press Any Key To Try Again"
+                    document.onkeyup = function(event){
+                        location.reload()
                     }    
                 keepscore();   
                 document.querySelector("#score").innerHTML = score    
-            }
-
-            if (goodguess === word.length) {
-                document.querySelector("#winlosemessage").innerHTML = "Great Job Catching That Tube, Brah!  Press Any Key To Try Again."
-                document.onkeyup = function(event){
-                    location.reload()
-                    }    
-                keepscore();   
-                document.querySelector("#score").innerHTML = score
                 }
+
+            }
+                //need to add this to each word's conditional statement with the correct number of letters
+
+
+
+            // if (goodguess === word.length) {
+            //     document.querySelector("#winlosemessage").innerHTML = "Great Job Catching That Tube, Brah!  Press Any Key To Try Again"
+            //     document.onkeyup = function(event){
+            //         location.reload()
+            //         }    
+            //     keepscore();   
+            //     document.querySelector("#score").innerHTML = score    
+            // }
+
+            // if (goodguess === word.length) {
+            //     document.querySelector("#winlosemessage").innerHTML = "Great Job Catching That Tube, Brah!  Press Any Key To Try Again."
+            //     document.onkeyup = function(event){
+            //         location.reload()
+            //         }    
+            //     keepscore();   
+            //     document.querySelector("#score").innerHTML = score
+            // }
         })    
             // function bodhiguess(){
 
