@@ -25,24 +25,127 @@
     width: 100%;
     z-index: -1;
     float: left;
+    /* display: none; */
+    /* hiding the wipeout pic */
 }
 
-div[id*='picsection']{
+/* div[id*='picsection']{
     text-align: center;
     height: 100%;
-    border: 1px solid red;
+    border: 1px solid purple;
     z-index: 10;
     top: 0;
     left: 0;
-}
+    position: absolute;
+
+} */
 
 #picsection1{
     text-align: center;
     height: 100%;
+    width: 12.5%;
     border: 1px solid red;
-    z-index: 1;
+    z-index: 10;
+    background-color: blue;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#picsection2{
+    text-align: center;
+    height: 100%;
+    width: 12.5%;
+    border: 1px solid green;
+    background-color: yellow;
+    z-index: 10;
     float: left;
-    position: relative;
+    top: 0;
+    left: 12.5%;
+    position: absolute;
+}
+
+#picsection3{
+    text-align: center;
+    height: 100%;
+    width: 12.5%;
+    border: 1px solid green;
+    background-color: yellow;
+    z-index: 10;
+    float: left;
+    top: 0;
+    left: 25%;
+    position: absolute;
+}
+
+#picsection4{
+    text-align: center;
+    height: 100%;
+    width: 12.5%;
+    border: 1px solid green;
+    background-color: yellow;
+    z-index: 10;
+    float: left;
+    top: 0;
+    left: 37.5%;
+    position: absolute;
+}
+
+#picsection5{
+    text-align: center;
+    height: 100%;
+    width: 12.5%;
+    border: 1px solid green;
+    background-color: yellow;
+    z-index: 10;
+    float: left;
+    top: 0;
+    left: 50%;
+    position: absolute;
+}
+
+#picsection6{
+    text-align: center;
+    height: 100%;
+    width: 12.5%;
+    border: 1px solid green;
+    background-color: yellow;
+    z-index: 10;
+    float: left;
+    top: 0;
+    left: 62.5%;
+    position: absolute;
+}
+
+#picsection7{
+    text-align: center;
+    height: 100%;
+    width: 12.5%;
+    border: 1px solid green;
+    background-color: yellow;
+    z-index: 10;
+    float: left;
+    top: 0;
+    left: 75%;
+    position: absolute;
+}
+
+#picsection8{
+    text-align: center;
+    height: 100%;
+    width: 12.5%;
+    border: 1px solid green;
+    background-color: yellow;
+    z-index: 10;
+    float: left;
+    top: 0;
+    left: 87.5%;
+    position: absolute;
+}
+
+.rowtest{   
+    height: 100%;
+    border: 3px solid orange;
 }
 
 #title{
@@ -70,4 +173,9 @@ div[id*='box']{
 span[id*='letter']{
     font-size: 50px;
 }    
+
+#picsectionreveal{
+    z-index: -10;
+    display: none;
+}
 
